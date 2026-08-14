@@ -12,7 +12,7 @@ VisionGuard is a production-style computer-vision system: ingest a camera or fil
 Most “safety YOLO” demos stop at drawing boxes. The interesting part here is the **temporal layer** — persistence, near-miss geometry, zone multipliers, and a calibrated 0–100 risk EMA — plus a from-scratch detector (`VGNet`) so the training story is not only `YOLO.train()`.
 
 <p align="center">
-  <img src="assets/architecture.svg" alt="VisionGuard architecture" width="920" />
+  <img src="assets/architecture.png" alt="VisionGuard architecture" width="920" />
 </p>
 
 <p align="center">

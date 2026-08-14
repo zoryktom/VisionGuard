@@ -1,65 +1,60 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520" role="img" aria-label="VisionGuard architecture">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#07090d"/>
-      <stop offset="100%" stop-color="#10151d"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
-  <rect width="1100" height="520" rx="24" fill="url(#bg)"/>
-  <text x="40" y="48" fill="#00e5a8" font-family="IBM Plex Sans, Helvetica, Arial" font-size="18" font-weight="700" letter-spacing="4">VISIONGUARD</text>
-  <text x="40" y="72" fill="#8b97a8" font-family="IBM Plex Sans, Helvetica, Arial" font-size="13">Capture ’ Detect ’ Track ’ Fuse ’ Overlay ’ API</text>
+  <rect width="1100" height="520" rx="24" fill="#07090d"/>
+  <rect width="1100" height="520" rx="24" fill="#10151d" opacity="0.85"/>
+  <text x="40" y="48" fill="#00e5a8" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="4">VISIONGUARD</text>
+  <text x="40" y="72" fill="#8b97a8" font-family="Helvetica, Arial, sans-serif" font-size="13">Capture - Detect - Track - Fuse - Overlay - API</text>
 
-  <g font-family="IBM Plex Sans, Helvetica, Arial" font-size="13">
+  <g font-family="Helvetica, Arial, sans-serif" font-size="13">
     <rect x="40" y="110" width="180" height="86" rx="14" fill="#161c26" stroke="#1c2430"/>
-    <text x="130" y="148" text-anchor="middle" fill="#e8edf5" font-weight="600">Capture</text>
-    <text x="130" y="170" text-anchor="middle" fill="#8b97a8">webcam · file · RTSP</text>
+    <text x="130" y="148" text-anchor="middle" fill="#e8edf5" font-weight="700">Capture</text>
+    <text x="130" y="170" text-anchor="middle" fill="#8b97a8">webcam / file / RTSP</text>
 
-    <rect x="260" y="110" width="180" height="86" rx="14" fill="#161c26" stroke="#00e5a8" filter="url(#glow)"/>
-    <text x="350" y="148" text-anchor="middle" fill="#00e5a8" font-weight="600">Detector</text>
-    <text x="350" y="170" text-anchor="middle" fill="#8b97a8">YOLO · VGNet · dummy</text>
+    <rect x="260" y="110" width="180" height="86" rx="14" fill="#161c26" stroke="#00e5a8"/>
+    <text x="350" y="148" text-anchor="middle" fill="#00e5a8" font-weight="700">Detector</text>
+    <text x="350" y="170" text-anchor="middle" fill="#8b97a8">YOLO / VGNet / dummy</text>
 
     <rect x="480" y="110" width="180" height="86" rx="14" fill="#161c26" stroke="#1c2430"/>
-    <text x="570" y="148" text-anchor="middle" fill="#e8edf5" font-weight="600">ByteTracker</text>
+    <text x="570" y="148" text-anchor="middle" fill="#e8edf5" font-weight="700">ByteTracker</text>
     <text x="570" y="170" text-anchor="middle" fill="#8b97a8">Kalman + IoU IDs</text>
 
     <rect x="700" y="110" width="180" height="86" rx="14" fill="#161c26" stroke="#ffb020"/>
-    <text x="790" y="148" text-anchor="middle" fill="#ffb020" font-weight="600">HazardFusion</text>
-    <text x="790" y="170" text-anchor="middle" fill="#8b97a8">persist · proximity</text>
+    <text x="790" y="148" text-anchor="middle" fill="#ffb020" font-weight="700">HazardFusion</text>
+    <text x="790" y="170" text-anchor="middle" fill="#8b97a8">persist / proximity</text>
 
     <rect x="920" y="110" width="140" height="86" rx="14" fill="#161c26" stroke="#ff3b5c"/>
-    <text x="990" y="148" text-anchor="middle" fill="#ff3b5c" font-weight="600">Risk</text>
-    <text x="990" y="170" text-anchor="middle" fill="#8b97a8">0100 EMA</text>
+    <text x="990" y="148" text-anchor="middle" fill="#ff3b5c" font-weight="700">Risk</text>
+    <text x="990" y="170" text-anchor="middle" fill="#8b97a8">0-100 EMA</text>
 
-    <path d="M220 153 H260" stroke="#3d9eff" stroke-width="2" marker-end="url(#arrow)"/>
-    <path d="M440 153 H480" stroke="#3d9eff" stroke-width="2"/>
-    <path d="M660 153 H700" stroke="#3d9eff" stroke-width="2"/>
-    <path d="M880 153 H920" stroke="#3d9eff" stroke-width="2"/>
+    <path d="M220 153 H255" stroke="#3d9eff" stroke-width="2"/>
+    <polygon points="255,148 265,153 255,158" fill="#3d9eff"/>
+    <path d="M440 153 H475" stroke="#3d9eff" stroke-width="2"/>
+    <polygon points="475,148 485,153 475,158" fill="#3d9eff"/>
+    <path d="M660 153 H695" stroke="#3d9eff" stroke-width="2"/>
+    <polygon points="695,148 705,153 695,158" fill="#3d9eff"/>
+    <path d="M880 153 H915" stroke="#3d9eff" stroke-width="2"/>
+    <polygon points="915,148 925,153 915,158" fill="#3d9eff"/>
   </g>
 
-  <g font-family="IBM Plex Sans, Helvetica, Arial" font-size="13">
+  <g font-family="Helvetica, Arial, sans-serif" font-size="13">
     <rect x="40" y="250" width="320" height="110" rx="14" fill="#161c26" stroke="#1c2430"/>
-    <text x="56" y="280" fill="#e8edf5" font-weight="600">Safety zones</text>
-    <text x="56" y="304" fill="#8b97a8">PPE · vehicle lane · exit · restricted</text>
+    <text x="56" y="280" fill="#e8edf5" font-weight="700">Safety zones</text>
+    <text x="56" y="304" fill="#8b97a8">PPE / vehicle lane / exit / restricted</text>
     <text x="56" y="328" fill="#8b97a8">Normalized polygons in YAML</text>
 
     <rect x="390" y="250" width="320" height="110" rx="14" fill="#161c26" stroke="#1c2430"/>
-    <text x="406" y="280" fill="#e8edf5" font-weight="600">Overlay HUD</text>
-    <text x="406" y="304" fill="#8b97a8">Track IDs · severity color · FPS</text>
+    <text x="406" y="280" fill="#e8edf5" font-weight="700">Overlay HUD</text>
+    <text x="406" y="304" fill="#8b97a8">Track IDs / severity color / FPS</text>
     <text x="406" y="328" fill="#8b97a8">MJPEG + CLI annotated video</text>
 
     <rect x="740" y="250" width="320" height="110" rx="14" fill="#161c26" stroke="#1c2430"/>
-    <text x="756" y="280" fill="#e8edf5" font-weight="600">FastAPI + dashboard</text>
+    <text x="756" y="280" fill="#e8edf5" font-weight="700">FastAPI + dashboard</text>
     <text x="756" y="304" fill="#8b97a8">/infer /stream /events /metrics</text>
     <text x="756" y="328" fill="#8b97a8">Prometheus + SSE timeline</text>
   </g>
 
-  <g font-family="IBM Plex Sans, Helvetica, Arial" font-size="12">
+  <g font-family="Helvetica, Arial, sans-serif" font-size="12">
     <rect x="40" y="390" width="1020" height="90" rx="14" fill="#0c1016" stroke="#1c2430"/>
-    <text x="60" y="425" fill="#00e5a8" font-weight="600">Training</text>
-    <text x="60" y="450" fill="#8b97a8">YOLO-format dataset ’ augment ’ VGNet loop (focal/CE + CIoU) or Ultralytics fine-tune ’ mAP@0.5 ’ ONNX / TorchScript export</text>
+    <text x="60" y="425" fill="#00e5a8" font-weight="700">Training</text>
+    <text x="60" y="450" fill="#8b97a8">YOLO-format dataset, augment, VGNet loop (CE + CIoU) or Ultralytics fine-tune, mAP@0.5, ONNX / TorchScript export</text>
   </g>
 </svg>
