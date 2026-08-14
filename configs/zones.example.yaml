@@ -1,0 +1,31 @@
+# Example safety zones in normalized image coordinates (x, y in 0-1).
+# Polygons are closed automatically.
+zones:
+  - name: ppe_required
+    type: ppe_required
+    polygon:
+      - [0.00, 0.00]
+      - [0.70, 0.00]
+      - [0.70, 1.00]
+      - [0.00, 1.00]
+  - name: vehicle_lane
+    type: vehicle_lane
+    polygon:
+      - [0.70, 0.00]
+      - [1.00, 0.00]
+      - [1.00, 1.00]
+      - [0.70, 1.00]
+  - name: east_exit
+    type: exit
+    polygon:
+      - [0.85, 0.00]
+      - [1.00, 0.00]
+      - [1.00, 0.18]
+      - [0.85, 0.18]
+  - name: chemical_store
+    type: restricted
+    polygon:
+      - [0.00, 0.70]
+      - [0.22, 0.70]
+      - [0.22, 1.00]
+      - [0.00, 1.00]

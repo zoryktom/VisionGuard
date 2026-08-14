@@ -1,0 +1,130 @@
+# VisionGuard hazard taxonomy.
+# Detector class names must match `detector_name`.
+# COCO-pretrained YOLO is mapped via `coco_aliases` for zero-shot demos.
+
+version: 1
+categories:
+  behavior:
+    color: [61, 158, 255]
+    classes:
+      - id: person
+        detector_name: person
+        severity: low
+        description: Human in scene (anchor for PPE / proximity rules).
+        coco_aliases: [person]
+      - id: no_ppe_helmet
+        detector_name: no_helmet
+        severity: high
+        description: Worker without a hard hat in a PPE-required zone.
+        coco_aliases: []
+      - id: no_ppe_vest
+        detector_name: no_vest
+        severity: medium
+        description: Worker without a high-visibility vest.
+        coco_aliases: []
+      - id: phone_use
+        detector_name: phone
+        severity: medium
+        description: Handheld device use on the floor.
+        coco_aliases: [cell phone]
+      - id: smoking
+        detector_name: smoking
+        severity: high
+        description: Open flame / smoking in a restricted area.
+        coco_aliases: []
+      - id: fall_detected
+        detector_name: fall
+        severity: critical
+        description: Person pose consistent with a fall.
+        coco_aliases: []
+      - id: restricted_area_entry
+        detector_name: restricted_entry
+        severity: high
+        description: Person inside a geofenced restricted zone.
+        coco_aliases: []
+
+  environment:
+    color: [255, 176, 32]
+    classes:
+      - id: fire
+        detector_name: fire
+        severity: critical
+        description: Visible fire.
+        coco_aliases: []
+      - id: smoke
+        detector_name: smoke
+        severity: critical
+        description: Dense smoke plume.
+        coco_aliases: []
+      - id: spill
+        detector_name: spill
+        severity: high
+        description: Liquid spill / wet floor hazard.
+        coco_aliases: []
+      - id: blocked_exit
+        detector_name: blocked_exit
+        severity: critical
+        description: Egress path obstructed.
+        coco_aliases: []
+
+  object:
+    color: [255, 59, 92]
+    classes:
+      - id: industrial_vehicle
+        detector_name: vehicle
+        severity: medium
+        description: Forklift, truck, or other industrial vehicle.
+        coco_aliases: [truck, bus, car, motorcycle]
+      - id: knife
+        detector_name: knife
+        severity: high
+        description: Blade or cutting tool in an unauthorized area.
+        coco_aliases: [knife, scissors]
+      - id: chemical_container
+        detector_name: chemical
+        severity: medium
+        description: Unlabeled or unsecured chemical container.
+        coco_aliases: [bottle]
+      - id: exposed_cable
+        detector_name: cable
+        severity: high
+        description: Exposed electrical cable / trip hazard.
+        coco_aliases: []
+      - id: weapon
+        detector_name: weapon
+        severity: critical
+        description: Firearm or other weapon.
+        coco_aliases: []
+
+severity_weights:
+  low: 0.15
+  medium: 0.40
+  high: 0.75
+  critical: 1.00
+
+# Spatial interaction rules (near-miss / compounding risk).
+proximity_rules:
+  - left: person
+    right: industrial_vehicle
+    event: pedestrian_vehicle_near_miss
+    severity: high
+  - left: person
+    right: fire
+    event: person_near_fire
+    severity: critical
+  - left: person
+    right: spill
+    event: slip_risk
+    severity: high
+  - left: smoking
+    right: chemical_container
+    event: ignition_chemical_risk
+    severity: critical
+
+# Zone multipliers applied when a track centroid is inside a named zone.
+zone_multipliers:
+  ppe_required: 1.35
+  vehicle_lane: 1.25
+  exit: 1.50
+  restricted: 1.80
+  general: 1.00

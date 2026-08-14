@@ -1,0 +1,18 @@
+# VisionGuard class list (YOLO / Roboflow export target)
+names:
+  - person
+  - no_helmet
+  - no_vest
+  - phone
+  - smoking
+  - fall
+  - restricted_entry
+  - fire
+  - smoke
+  - spill
+  - blocked_exit
+  - vehicle
+  - knife
+  - chemical
+  - cable
+  - weapon

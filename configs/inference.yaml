@@ -1,0 +1,21 @@
+# Real-time inference overrides.
+inference:
+  backend: ultralytics
+  weights: yolov8n.pt
+  imgsz: 640
+  confidence: 0.30
+  iou: 0.45
+  half: true
+
+capture:
+  source: "0"
+  width: 1280
+  height: 720
+  fps: 30
+  drop_stale_frames: true
+
+tracking:
+  enabled: true
+  max_age: 30
+  min_hits: 2
+  iou_threshold: 0.3

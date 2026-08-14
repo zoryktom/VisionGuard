@@ -1,0 +1,73 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Virtualenvs
+.venv/
+venv/
+env/
+ENV/
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Models & data (keep structure, drop weights/media)
+models/checkpoints/**
+!models/checkpoints/.gitkeep
+data/datasets/**
+!data/datasets/.gitkeep
+data/samples/**
+!data/samples/.gitkeep
+!data/datasets/synthetic/
+*.pt
+*.pth
+*.onnx
+*.engine
+*.mlmodel
+*.bin
+*.safetensors
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+!assets/**
+
+# Secrets / local
+.env
+.env.*
+!.env.example
+*.log
+runs/
+wandb/
+mlruns/
+outputs/
+artifacts/
+
+# Node (if UI is built)
+ui/node_modules/
+ui/dist/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+Thumbs.db

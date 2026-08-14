@@ -1,0 +1,52 @@
+# Full detector training pipeline.
+# Dataset is expected in YOLO format: images/ + labels/ + data.yaml
+
+experiment:
+  name: visionguard-yolov8n
+  output_dir: runs/train
+  seed: 42
+
+data:
+  yaml: data/datasets/synthetic/data.yaml
+  imgsz: 640
+  cache: ram
+
+model:
+  architecture: yolov8n   # yolov8n|s|m|l  or  vgnet
+  pretrained: yolov8n.pt
+  num_classes: 16
+
+train:
+  epochs: 50
+  batch_size: 16
+  lr0: 0.01
+  lrf: 0.01
+  weight_decay: 0.0005
+  warmup_epochs: 3
+  patience: 20
+  amp: true
+  device: auto
+  workers: 4
+  optimizer: auto
+  mosaic: 1.0
+  mixup: 0.1
+  hsv_h: 0.015
+  hsv_s: 0.7
+  hsv_v: 0.4
+  fliplr: 0.5
+  degrees: 5.0
+
+eval:
+  split: val
+  iou: 0.50
+  conf: 0.001
+  plots: true
+
+export:
+  formats:
+    - onnx
+    - torchscript
+  opset: 17
+  simplify: true
+  dynamic: false
+  half: false

@@ -1,0 +1,21 @@
+services:
+  api:
+    build: .
+    image: visionguard:latest
+    ports:
+      - "8000:8000"
+    environment:
+      VISIONGUARD_DEVICE: ${VISIONGUARD_DEVICE:-cpu}
+      VISIONGUARD_MODEL_BACKEND: ${VISIONGUARD_MODEL_BACKEND:-dummy}
+      VISIONGUARD_MODEL_WEIGHTS: ${VISIONGUARD_MODEL_WEIGHTS:-yolov8n.pt}
+      VISIONGUARD_LOG_LEVEL: INFO
+    volumes:
+      - ./configs:/app/configs:ro
+      - ./models:/app/models
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8000/api/v1/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

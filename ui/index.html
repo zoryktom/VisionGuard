@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VisionGuard · Live Hazard Detection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="mark"></div>
+          <div>
+            <div class="title">VISIONGUARD</div>
+            <div class="subtitle">Real-time visual hazard intelligence</div>
+          </div>
+        </div>
+        <div class="top-metrics">
+          <div class="pill" id="device-pill">device —</div>
+          <div class="pill" id="backend-pill">backend —</div>
+          <div class="pill live"><span class="dot"></span> LIVE</div>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="panel video-panel">
+          <div class="panel-head">
+            <h2>Site camera</h2>
+            <span class="muted" id="frame-meta">waiting for stream</span>
+          </div>
+          <div class="video-wrap">
+            <img id="stream" alt="Annotated live stream" src="/api/v1/stream/mjpeg" />
+            <div class="scanlines"></div>
+          </div>
+        </section>
+
+        <aside class="side">
+          <section class="panel gauge-panel">
+            <h2>Site risk</h2>
+            <div class="gauge">
+              <svg viewBox="0 0 120 70" class="gauge-svg">
+                <path d="M10 60 A50 50 0 0 1 110 60" fill="none" stroke="#1b2430" stroke-width="10" />
+                <path id="gauge-arc" d="M10 60 A50 50 0 0 1 110 60" fill="none" stroke="#00e5a8" stroke-width="10" stroke-linecap="round" stroke-dasharray="157" stroke-dashoffset="157" />
+              </svg>
+              <div class="gauge-value" id="risk-value">0.0</div>
+              <div class="gauge-label" id="risk-label">nominal</div>
+            </div>
+          </section>
+
+          <section class="panel stats-panel">
+            <div class="stat"><span>FPS</span><strong id="stat-fps">—</strong></div>
+            <div class="stat"><span>Latency</span><strong id="stat-ms">—</strong></div>
+            <div class="stat"><span>Frames</span><strong id="stat-frames">—</strong></div>
+            <div class="stat"><span>Events</span><strong id="stat-events">—</strong></div>
+          </section>
+        </aside>
+
+        <section class="panel events-panel">
+          <div class="panel-head">
+            <h2>Hazard timeline</h2>
+            <button id="clear-hint" type="button">SSE live</button>
+          </div>
+          <ol id="events" class="events"></ol>
+        </section>
+
+        <section class="panel upload-panel">
+          <div class="panel-head">
+            <h2>Inspect a frame</h2>
+          </div>
+          <form id="upload-form">
+            <input id="file" type="file" accept="image/*" />
+            <button type="submit">Run inference</button>
+          </form>
+          <pre id="infer-out" class="code">Drop an image to see JSON detections.</pre>
+        </section>
+      </main>
+
+      <footer class="footer">
+        VisionGuard is a research / portfolio system. Do not use as the sole safety control on a live site.
+      </footer>
+    </div>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+# Default VisionGuard stack configuration.
+# Override with --config, env vars (VISIONGUARD_*), or CLI flags.
+
+system:
+  device: auto          # auto | cuda | mps | cpu
+  seed: 42
+  num_workers: 2
+  log_level: INFO
+
+capture:
+  source: "0"           # webcam index, file path, or RTSP URL
+  width: 1280
+  height: 720
+  fps: 30
+  buffer_size: 2
+  drop_stale_frames: true
+
+inference:
+  backend: ultralytics  # ultralytics | vgnet | dummy
+  weights: yolov8n.pt
+  custom_weights: models/checkpoints/visionguard_yolov8n.pt
+  imgsz: 640
+  confidence: 0.35
+  iou: 0.45
+  max_detections: 100
+  half: true            # FP16 on CUDA
+  batch_size: 1
+
+tracking:
+  enabled: true
+  max_age: 30
+  min_hits: 3
+  iou_threshold: 0.3
+  ema_alpha: 0.4
+
+hazards:
+  persist_frames: 8
+  cooldown_seconds: 4.0
+  near_miss_px: 120
+  risk_ema: 0.25
+
+overlay:
+  show_tracks: true
+  show_zones: true
+  show_risk: true
+  show_fps: true
+  logo: true
+
+api:
+  host: 0.0.0.0
+  port: 8000
+  cors_origins:
+    - "*"
+  mjpeg_quality: 80
+  event_buffer: 256

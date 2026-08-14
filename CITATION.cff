@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+title: "VisionGuard: Real-Time AI System for Detecting Safety Hazards in Video Streams"
+message: If you use this software, please cite it as below.
+type: software
+authors:
+  - family-names: Zorykto
+repository-code: "https://github.com/zoryktom/VisionGuard"
+license: MIT
+version: 1.0.0
+date-released: "2026-08-14"
+abstract: >
+  VisionGuard is a production-style computer vision stack for real-time
+  workplace hazard detection. It combines a pluggable detector backend
+  (YOLOv8 / VGNet / dummy), a Kalman IoU tracker, and temporal hazard
+  fusion with zone-aware risk scoring.

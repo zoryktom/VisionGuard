@@ -1,0 +1,14 @@
+name: visionguard
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python>=3.10,<3.13
+  - pip
+  - pytorch>=2.1
+  - torchvision>=0.16
+  - cpuonly  # replace with pytorch-cuda=12.1 on NVIDIA hosts
+  - pip:
+      - -r requirements.txt
+      - -r requirements-dev.txt
