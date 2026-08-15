@@ -221,6 +221,14 @@ GitHub Actions runs Ruff + pytest on Python 3.10/3.11/3.12 and builds the Docker
 
 ---
 
+## Author and contributor
+
+**Zorykto** ([@zoryktom](https://github.com/zoryktom)) is the author, creator, designer, architect, and sole contributor of VisionGuard.
+
+See [AUTHORS.md](AUTHORS.md) and [CONTRIBUTORS.md](CONTRIBUTORS.md).
+
+---
+
 ## License
 
 MIT. Ultralytics YOLO is **AGPL-3.0** — if that is incompatible with your deployment, use `vgnet` / `dummy` only, or swap in an Apache-licensed detector behind `visionguard.inference.Detector`.

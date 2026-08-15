@@ -4,6 +4,8 @@ message: If you use this software, please cite it as below.
 type: software
 authors:
   - family-names: Zorykto
+    alias: zoryktom
+    website: "https://github.com/zoryktom"
 repository-code: "https://github.com/zoryktom/VisionGuard"
 license: MIT
 version: 1.0.0

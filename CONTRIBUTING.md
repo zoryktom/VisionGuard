@@ -2,6 +2,8 @@
 
 Thanks for helping improve a real-time visual safety stack.
 
+VisionGuard is authored and architected by **Zorykto** ([@zoryktom](https://github.com/zoryktom)).
+
 ## Setup
 
 ```bash
