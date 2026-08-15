@@ -22,9 +22,10 @@ venv/
 env/
 ENV/
 
-# Editors
+# Editors / local agent sessions (do not commit chats)
 .idea/
 .vscode/
+.cursor/
 *.swp
 *.swo
 .DS_Store
